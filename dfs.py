@@ -26,3 +26,18 @@ def traverse(G, s, qtype=set):
         for v in G[u]:
             Q.add(v)
         yield u
+
+def dfs(G, s, d, f, S=None, t=0):
+    if S = None:
+        S = set()
+    d[s]=t;
+    t+=1
+    S.add(s)
+    for u in G[s]:
+        if u in S: continue
+        t = dfs(G, u, d, f, S, t)
+    f[s]=t
+    t+=1
+    return t
+
+
