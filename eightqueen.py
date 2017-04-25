@@ -5,14 +5,12 @@ def conflict(state, nextX):
             return True
         return False
 
-def queens(num, state=()):
-    if len(state) == num -1:
-        for pos in range(num):
-            if not conflict(state, pos):
+def queens(num=8, state=()):
+    for pos in range(num):
+        if not conflict(state, pos):
+            if len(state) == num-1:
                 yield pos
-    else:
-        for pos in range(num):
-            if not conflict(state, pos):
+            else:
                 for result in queens(num, state+(pos,)):
                     yield (pos,)+result
 
